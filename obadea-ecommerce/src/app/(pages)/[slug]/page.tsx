@@ -11,10 +11,11 @@ import { Blocks } from '../../_components/Blocks'
 import { Hero } from '../../_components/Hero'
 import { generateMeta } from '../../_utilities/generateMeta'
 import { Gutter } from '../../_components/Gutter'
+import { APIError } from 'payload/errors'
+
 import classes from './index.module.scss'
 import Categories from '../../_components/Categories'
 import Promotion from '../../_components/Promotion'
-import { APIError } from 'payload/errors'
 
 class MySpecialError extends APIError {
   constructor(message: string) {
