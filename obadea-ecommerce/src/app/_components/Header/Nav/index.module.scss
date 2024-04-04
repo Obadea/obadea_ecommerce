@@ -1,0 +1,107 @@
+@use '../../../_css/queries.scss' as *;
+
+.nav {
+  display: flex;
+  gap: calc(var(--base) / 4) var(--base);
+  align-items: center;
+  flex-wrap: wrap;
+  opacity: 1;
+  transition: opacity 100ms linear;
+  visibility: visible;
+  
+  > * {
+    text-decoration: none;
+  }
+
+
+
+}
+
+.iconSvg{
+  display: none;
+}
+
+.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.rightNav{
+  display: none;
+}
+
+
+@media (max-width:560px) {
+  .nav{
+    display: none;
+  }
+
+  .rightNav{
+    display: flex;
+
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .iconSvg{
+    display: flex;
+    position: relative;
+    transition: 0.4s;
+
+    .accountlink{
+      display: flex;
+      justify-content: space-between;
+    }
+
+
+  &:hover {
+    .iconMenuItem {
+      display: block;
+      gap: 100px;
+    transition: 0.4s;
+      text-align: start;
+
+    }
+  }
+
+  .iconMenuItem {
+  display: none;
+    position: absolute;
+    min-width: 80px;
+    width: 150px;
+    top: 100%;
+    right: 0;
+    background-color: #fff; 
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 2.5px 5px #00000028; 
+    transition: 0.4s;
+    z-index: 1;
+
+    hr{
+      border-color:  #00000020;
+      outline: none;
+    }
+
+  }
+  }
+
+  .mapedNavitem{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+
+
+
+    img{
+      margin-left: 4.6rem;   
+    }
+
+
+  
+
+  }
+
+}

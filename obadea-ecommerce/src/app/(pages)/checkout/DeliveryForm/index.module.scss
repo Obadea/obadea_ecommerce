@@ -1,0 +1,41 @@
+.form{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+
+  textarea,input{
+  display: block;
+  padding: 10px;
+  border-radius: 6px;
+  outline: none;
+  border: 1px solid #808080a3;
+  width: 100%;
+
+
+}
+
+
+
+
+
+}
+
+
+.addressLabel{
+  grid-column: 1 /span 2;
+  
+  textarea{
+    height: 6rem;
+  }
+
+}
+
+
+.actions{
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--base);
+    grid-column: 1 /span 2;
+  }
+  
