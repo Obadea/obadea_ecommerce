@@ -17,7 +17,6 @@ import { CheckoutForm } from '../CheckoutForm'
 import { CheckoutItem } from '../CheckoutItem'
 
 import classes from './index.module.scss'
-import { RadioButton } from '../../../_components/Radio'
 import Image from 'next/image'
 import DeliveryForm from '../DeliveryForm'
 

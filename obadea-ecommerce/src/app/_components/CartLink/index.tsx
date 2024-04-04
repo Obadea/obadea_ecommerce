@@ -1,12 +1,7 @@
 'use client'
-
-import React, { Fragment, useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import Link from 'next/link'
-
 import { useCart } from '../../_providers/Cart'
-
-import { profileNavItems } from '../../constants'
-
 import classes from './index.module.scss'
 import Image from 'next/image'
 

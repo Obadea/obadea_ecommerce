@@ -1,9 +1,13 @@
-import React from 'react'
-import Link from 'next/link'
-
 import { Footer } from '../../../payload/payload-types'
 import { fetchFooter } from '../../_api/fetchGlobals'
 import FooterComponent from './FooterComponent'
+import { APIError } from 'payload/errors'
+
+class MySpecialError extends APIError {
+  constructor(message: any) {
+    super(message, 400, undefined, true)
+  }
+}
 
 export async function Footer() {
   let footer: Footer | null = null
@@ -11,7 +15,7 @@ export async function Footer() {
   try {
     footer = await fetchFooter()
   } catch (error) {
-    console.log(error)
+    throw new MySpecialError(error.message)
   }
 
   const navItems = footer?.navItems || []

@@ -1,7 +1,4 @@
 'use client'
-
-import React from 'react'
-
 import { Header } from '../../../../payload/payload-types'
 import { Gutter } from '../../Gutter'
 import Link from 'next/link'
@@ -23,7 +20,13 @@ const HeaderComponent = ({ header }: { header: Header }) => {
     >
       <Gutter className={classes.wrap}>
         <Link href="/">
-          <Image src="/logo-black.svg" alt="logo" width={170} height={50}  className={classes.logo}/>
+          <Image
+            src="/logo-black.svg"
+            alt="logo"
+            width={170}
+            height={50}
+            className={classes.logo}
+          />
         </Link>
 
         <HeaderNav header={header} />

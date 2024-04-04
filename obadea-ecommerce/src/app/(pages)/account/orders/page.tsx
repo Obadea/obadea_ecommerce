@@ -1,15 +1,13 @@
-import React from 'react'
+'use client'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-
 import { Order } from '../../../../payload/payload-types'
 import { Button } from '../../../_components/Button'
 import { RenderParams } from '../../../_components/RenderParams'
 import { formatDateTime } from '../../../_utilities/formatDateTime'
 import { getMeUser } from '../../../_utilities/getMeUser'
 import { mergeOpenGraph } from '../../../_utilities/mergeOpenGraph'
-
 import classes from './index.module.scss'
 
 export default async function Orders() {

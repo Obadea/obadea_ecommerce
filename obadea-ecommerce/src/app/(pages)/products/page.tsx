@@ -1,4 +1,3 @@
-import React from 'react'
 import classes from './index.module.scss'
 import { Gutter } from '../../_components/Gutter'
 import Filters from './Filters'
@@ -8,10 +7,16 @@ import { fetchDoc } from '../../_api/fetchDoc'
 import { draftMode } from 'next/headers'
 import { fetchDocs } from '../../_api/fetchDocs'
 import { HR } from '../../_components/HR'
+import { APIError } from 'payload/errors'
 
 const Products = async () => {
-  const { isEnabled: isDraftMode } = draftMode()
+  class MySpecialError extends APIError {
+    constructor(message: string) {
+      super(message, 400, undefined, true)
+    }
+  }
 
+  const { isEnabled: isDraftMode } = draftMode()
   let page: Page | null = null
   let categories: Category[] | null = null
 
@@ -24,7 +29,7 @@ const Products = async () => {
 
     categories = await fetchDocs<Category>('categories')
   } catch (error) {
-    console.log(error)
+    throw new MySpecialError(error.message)
   }
 
   return (

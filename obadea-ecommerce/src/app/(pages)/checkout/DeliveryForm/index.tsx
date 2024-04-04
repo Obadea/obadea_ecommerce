@@ -1,5 +1,5 @@
+'use client'
 import React, { useCallback, useState } from 'react'
-
 import classes from './index.module.scss'
 import { Button } from '../../../_components/Button'
 import { useCart } from '../../../_providers/Cart'
@@ -11,7 +11,6 @@ import { Message } from '../../../_components/Message'
 const DeliveryForm: React.FC<{}> = () => {
   const [isLoading, setIsLoading] = React.useState(false)
   const { cart, cartTotal } = useCart()
-  let currentTime = new Date().getTime()
   const router = useRouter()
   const [error, setError] = React.useState<string | null>(null)
 
@@ -31,9 +30,6 @@ const DeliveryForm: React.FC<{}> = () => {
       setIsLoading(true)
       setPhoneNumber(e.target.value)
       setAddress(e.target.value)
-
-      //   readyNumber = phoneNumber
-      //   readyAddress = address
 
       try {
         const orderReq = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/orders`, {
