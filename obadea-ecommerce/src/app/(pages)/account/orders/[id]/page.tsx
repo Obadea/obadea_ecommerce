@@ -107,7 +107,7 @@ export default async function Order({ params: { id } }) {
                       </Link>
                     </h6>
                     <p>{`Quantity: ${quantity}`}</p>
-                    <Price product={product} button={false} 3 />
+                    <Price product={product} button={false} />
                   </div>
                 </div>
               </Fragment>
