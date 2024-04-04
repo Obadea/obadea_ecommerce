@@ -1,4 +1,3 @@
-'use client'
 import React from 'react'
 import { Metadata } from 'next'
 import { draftMode } from 'next/headers'
@@ -15,7 +14,13 @@ import { Gutter } from '../../_components/Gutter'
 import classes from './index.module.scss'
 import Categories from '../../_components/Categories'
 import Promotion from '../../_components/Promotion'
+import { APIError } from 'payload/errors'
 
+class MySpecialError extends APIError {
+  constructor(message: string) {
+    super(message, 400, undefined, true)
+  }
+}
 // Payload Cloud caches all files through Cloudflare, so we don't need Next.js to cache them as well
 // This means that we can turn off Next.js data caching and instead rely solely on the Cloudflare CDN
 // To do this, we include the `no-cache` header on the fetch requests used to get the data for this page
@@ -86,7 +91,7 @@ export async function generateStaticParams() {
     const pages = await fetchDocs<Page>('pages')
     return pages?.map(({ slug }) => slug)
   } catch (error) {
-    return []
+    throw new MySpecialError(error.message)
   }
 }
 
